@@ -1,38 +1,99 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Page Layout */
+body {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  min-height: 100vh;
+}
+
+/* Header */
+.header {
+  background: #0073b1;
   color: white;
+  padding: 15px 20px;
+  text-align: left;
+  font-size: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+/* Container for Sidebar and Main Content */
+.content-wrapper {
+  display: flex;
+  flex: 1;
+  width: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Sidebar (Top-Left, Below Header) */
+.sidebar {
+  width: 250px;
+  background: rgb(255, 255, 255);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 20px; /* Adds space below the header */
+  position: relative;
+}
+
+/* Main Content (Centered in Page) */
+.main-container {
+  flex: 1;
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  padding: 20px;
+  position: relative; /* Set to relative to allow absolute positioning of AddUser */
+}
+
+/* Content Box */
+/* .main-content {
+  width: 60%;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative; 
+  z-index: 1; 
+} */
+.add-user-container {
+  position: absolute;
+  top: 20%; /* You can adjust this to position it further down or up */
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 10; /* Makes sure it appears above the users list */
+  border-radius: 8px;
+  width: 400px; /* Adjust width as needed */
+}
+
+.main-content {
+  position: relative; /* Needed for the absolute positioning of the add-user-container */
+}
+
+/* Main content background */
+.main-content-background {
+  position: absolute; /* Keep it fixed in the background */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.05); /* Slight shadow for effect */
+  z-index: 0; /* Keep behind the AddUser form */
+}
+
+
+/* Footer at the Very Bottom */
+.footer {
+  background: #0073b1;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin-top: auto;
+  width: 100%;
 }
